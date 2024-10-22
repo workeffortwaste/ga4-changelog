@@ -1,8 +1,9 @@
 {
   "name": "ga4-changelog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch the latest `what's new` changes for Google Analytics 4 and return them in an object.",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/workeffortwaste/ga4-changelog.git"
