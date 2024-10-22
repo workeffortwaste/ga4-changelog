@@ -59,8 +59,7 @@ Example output:
     "updates": ["Manual traffic source dimensions and report"],
     "markdown": "### Manual traffic source dimensions and report\n\n...",
     "date": "2024-02-08T00:00:00.000Z"
-  },
-  ...
+  }
 ]
 ```
 
