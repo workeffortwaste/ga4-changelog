@@ -45,6 +45,8 @@ const changelog = async (languageCode = 'en') => {
           date: new Date(Date.parse(`20${result.id.slice(-2)}-${result.id.slice(0, 2)}-${result.id.slice(2, 4)}`)),
           update: update,
           markdown: nhm.translate(section),
+          id: result.id,
+          link: `${googleUrl}?hl=${languageCode}#${result.id}`,
           html: section
         })
       })
