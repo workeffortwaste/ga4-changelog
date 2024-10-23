@@ -47,6 +47,7 @@ The output is an array of objects, each containing the following properties:
 - `html` (string): The raw HTML content of the update.
 - `update` (string): Update heading extracted from the HTML.
 - `markdown` (string): The Markdown representation of the HTML content.
+- `slack` (string): The mrkdwn representation of the HTML content for use with Slack. 
 - `date` (Date): The date of the update.
 - `link` (string): The direct URL to the update.
 
@@ -59,6 +60,7 @@ Example output:
     "html": "<h3>Manual traffic source dimensions and report</h3>\n\n<p>...",
     "update": "Manual traffic source dimensions and report",
     "markdown": "### Manual traffic source dimensions and report\n\n...",
+    "slack": "*Manual traffic source dimensions and report*\n\n...",
     "date": "2024-02-08T00:00:00.000Z"
   }
 ]

@@ -3,6 +3,7 @@
  */
 import got from 'got'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
+import slackify from 'slackify-markdown'
 
 /* Google's GA4 `what's new` URL */
 const googleUrl = 'https://support.google.com/analytics/answer/9164320'
@@ -46,10 +47,12 @@ const changelog = async (languageCode = 'en') => {
       const updates = [...section.matchAll(/<h3>(.*?)<\/h3>/g)].map(heading => heading[1])
 
       updates.forEach(update => {
+        const markdown = nhm.translate(section)
         finalResults.push({
           date: new Date(Date.parse(`20${result.id.slice(-2)}-${result.id.slice(0, 2)}-${result.id.slice(2, 4)}`)),
-          update: update,
-          markdown: nhm.translate(section),
+          update,
+          markdown,
+          slack: slackify(markdown),
           id: result.id,
           link: `${googleUrl}?hl=${languageCode}#${result.id}`,
           html: section
