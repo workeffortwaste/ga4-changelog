@@ -44,10 +44,11 @@ Fetches the latest "what's new" changes for Google Analytics 4.
 The output is an array of objects, each containing the following properties:
 
 - `id` (string): The ID of the update.
-- `html` (string): The raw HTML content of the updates.
+- `html` (string): The raw HTML content of the update.
 - `update` (string): Update heading extracted from the HTML.
 - `markdown` (string): The Markdown representation of the HTML content.
 - `date` (Date): The date of the update.
+- `link` (string): The direct URL to the update.
 
 Example output:
 
