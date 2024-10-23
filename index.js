@@ -32,14 +32,26 @@ const changelog = async (languageCode = 'en') => {
   const nhm = new NodeHtmlMarkdown()
 
   /* Clean and prep data */
+  const finalResults = []
   results.forEach(result => {
     result.html = result.html.trim()
-    result.updates = [...result.html.matchAll(/<h3>(.*?)<\/h3>/g)].map(heading => heading[1])
-    result.markdown = nhm.translate(result.html)
-    result.date = new Date(Date.parse(`20${result.id.slice(-2)}-${result.id.slice(0, 2)}-${result.id.slice(2, 4)}`))
+    const updateSections = result.html.split(/(?=<h3>)/g) // Split HTML content based on <h3> tags
+
+    updateSections.forEach(section => {
+      const updates = [...section.matchAll(/<h3>(.*?)<\/h3>/g)].map(heading => heading[1])
+
+      updates.forEach(update => {
+        finalResults.push({
+          date: new Date(Date.parse(`20${result.id.slice(-2)}-${result.id.slice(0, 2)}-${result.id.slice(2, 4)}`)),
+          update: update,
+          markdown: nhm.translate(section),
+          html: section
+        })
+      })
+    })
   })
 
-  return results
+  return finalResults
 }
 
 export default changelog
