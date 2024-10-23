@@ -37,6 +37,11 @@ const changelog = async (languageCode = 'en') => {
     result.html = result.html.trim()
     const updateSections = result.html.split(/(?=<h3>)/g) // Split HTML content based on <h3> tags
 
+    /* Replace naked urls without a domain to https://support.google.com */
+    updateSections.forEach((section, index) => {
+      updateSections[index] = section.replace(/href="\//g, 'href="https://support.google.com/')
+    })
+
     updateSections.forEach(section => {
       const updates = [...section.matchAll(/<h3>(.*?)<\/h3>/g)].map(heading => heading[1])
 
