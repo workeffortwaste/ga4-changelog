@@ -1,6 +1,6 @@
 {
   "name": "ga4-changelog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Fetch the latest `what's new` changes for Google Analytics 4 and return them in an object.",
   "main": "index.js",
   "type": "module",
